@@ -24,8 +24,8 @@
 #define PCLK_GPIO_NUM    13
 
 // WiFi credentials
-const char* ssid = "Mikamochi";
-const char* password = "20080228BB";
+const char* ssid = "";
+const char* password = "";
 
 void startCameraServer();
 void setupLedFlash(int pin);
