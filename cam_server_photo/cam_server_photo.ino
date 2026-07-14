@@ -24,8 +24,8 @@
 #define PCLK_GPIO_NUM    13
 
 // WiFi credentials
-const char* ssid = "Mikamochi";
-const char* password = "20080228BB";
+const char* ssid = "";
+const char* password = "";
 
 void startCameraServer();
 void setupLedFlash(int pin);
@@ -57,21 +57,19 @@ void setup() {
   config.pin_reset = RESET_GPIO_NUM;
 
   config.xclk_freq_hz = 10000000;
-  config.frame_size = FRAMESIZE_HVGA;
+  config.frame_size = FRAMESIZE_XGA;
   config.pixel_format = PIXFORMAT_JPEG;
   config.grab_mode = CAMERA_GRAB_LATEST;
   config.fb_location = CAMERA_FB_IN_PSRAM;
-  config.jpeg_quality = 35;
+  config.jpeg_quality = 10;
   config.fb_count = 2;
 
-  // Initialize camera
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
     Serial.printf("Camera init failed with error 0x%x", err);
     return;
   }
 
-  // OV3660 sensor tuning
   sensor_t * s = esp_camera_sensor_get();
   s->set_vflip(s, 1);
   s->set_hmirror(s, 0);
@@ -94,7 +92,7 @@ void setup() {
   Serial.print("Camera Stream Ready! Go to: http://");
   Serial.println(WiFi.localIP());
 
-  startCameraServer();   // This is already in the example
+  startCameraServer();
 }
 
 void loop() {
