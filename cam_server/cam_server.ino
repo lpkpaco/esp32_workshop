@@ -24,8 +24,8 @@
 #define PCLK_GPIO_NUM    13
 
 // WiFi credentials
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "Mikamochi";
+const char* password = "20080228BB";
 
 void startCameraServer();
 void setupLedFlash(int pin);
@@ -61,7 +61,7 @@ void setup() {
   config.pixel_format = PIXFORMAT_JPEG;
   config.grab_mode = CAMERA_GRAB_LATEST;
   config.fb_location = CAMERA_FB_IN_PSRAM;
-  config.jpeg_quality = 45;
+  config.jpeg_quality = 35;
   config.fb_count = 2;
 
   // Initialize camera
